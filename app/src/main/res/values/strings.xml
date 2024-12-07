@@ -13,4 +13,5 @@
     <string name="drugName">Medicine Name : %s</string>
     <string name="doseName">Dosage : %s</string>
     <string name="strengthName">Strength : %s</string>
+    <string name="emptyCredentialsError">PLease enter user name and password</string>
 </resources>

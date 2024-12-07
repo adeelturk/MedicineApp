@@ -42,7 +42,7 @@ fun MainApp(appState: AppState) {
             ) {
 
                 composable(route = Screen.LoginScreen.route) {
-                    LoginScreen(mainViewModel) {
+                    LoginScreen(mainViewModel,appState) {
 
                         appState.navController.navigate(Screen.MedicineListScreen.route)
 

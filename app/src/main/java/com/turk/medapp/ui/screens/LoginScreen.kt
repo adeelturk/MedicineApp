@@ -28,16 +28,23 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.turk.medapp.R
+import com.turk.medapp.ui.AppState
 import com.turk.medapp.ui.main.MainViewModel
+import com.turk.medapp.ui.rememberAppState
 import com.turk.medapp.ui.theme.MyApplicationTheme
 import com.turk.medapp.ui.theme.SmallTitle
 import com.turk.medapp.ui.theme.mediumUnit
 import com.turk.medapp.ui.theme.smallUnit
 
 @Composable
-fun LoginScreen(mainViewModel: MainViewModel, moveToMedicineListScreen: () -> Unit) {
+fun LoginScreen(
+    mainViewModel: MainViewModel,
+    appState: AppState,
+    moveToMedicineListScreen: () -> Unit,
+) {
     var userName by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
+    val errorMessage = stringResource(R.string.emptyCredentialsError)
 
     Box(
         modifier = Modifier
@@ -96,6 +103,9 @@ fun LoginScreen(mainViewModel: MainViewModel, moveToMedicineListScreen: () -> Un
                             if (userName.isNotBlank() && password.isNotBlank()) {
                                 mainViewModel.saveUserName(userName)
                                 moveToMedicineListScreen()
+                            } else {
+
+                                appState.showSnackbar(errorMessage)
                             }
                         }
                     ) {
@@ -122,7 +132,7 @@ fun LoginScreen(mainViewModel: MainViewModel, moveToMedicineListScreen: () -> Un
 @Preview
 fun PreviewLoginScreen() {
     MyApplicationTheme {
-        LoginScreen(hiltViewModel()) {}
+        LoginScreen(hiltViewModel(), rememberAppState()) {}
     }
 
 }
