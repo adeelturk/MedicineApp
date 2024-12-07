@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="g_morning">Good morning</string>
+    <string name="g_afternoon">Good Afternoon</string>
+    <string name="g_evening">Good Evening</string>
+    <string name="greetingMessage">Hi %s %s</string>
+
+    <string name="detail_title">Detail</string>
+    <string name="illnessName">Condition : %s</string>
+    <string name="drugName">Medicine Name : %s</string>
+    <string name="doseName">Dosage : %s</string>
+    <string name="strengthName">Strength : %s</string>
+</resources>
